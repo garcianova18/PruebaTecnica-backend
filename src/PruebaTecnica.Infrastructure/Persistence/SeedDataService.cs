@@ -12,7 +12,7 @@ public  class SeedDataService : ISeedDataService
     private readonly ILogger logger;
     private readonly IPasswordHasherService passwordHasher;
 
-    public SeedDataService(IUnitOfWork unitOfWork, ILogger logger, IPasswordHasherService passwordHasher)
+    public SeedDataService(IUnitOfWork unitOfWork, ILogger<SeedDataService> logger, IPasswordHasherService passwordHasher)
     {
         this.unitOfWork = unitOfWork;
         this.logger = logger;

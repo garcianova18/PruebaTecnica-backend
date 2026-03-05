@@ -32,6 +32,7 @@ public static class DependencyInjection
         services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
         services.AddScoped<IPasswordHasherService, PasswordHasherService>();
         services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<ISeedDataService, SeedDataService>();
 
         // JWT Authentication
         var jwtSettings = configuration.GetSection(JwtSettings.SectionName).Get<JwtSettings>()!;

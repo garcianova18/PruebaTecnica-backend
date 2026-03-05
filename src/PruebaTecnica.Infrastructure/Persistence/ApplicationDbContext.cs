@@ -3,8 +3,12 @@ using PruebaTecnica.Domain.Entities;
 
 namespace PruebaTecnica.Infrastructure.Persistence;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
+public class ApplicationDbContext : DbContext
 {
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
+    {
+        
+    }
     public DbSet<Product> Products { get; set; }
     public DbSet<User> Users  { get; set; }
     public DbSet<Role> Roles { get; set; }
