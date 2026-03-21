@@ -59,13 +59,13 @@ public static class DependencyInjection
         services.AddHttpClient<IGeoClient, GeoClient>((sp, client) =>
         {
             var settings = sp.GetRequiredService<IOptions<GeocodingApiSettings>>().Value;
-            client.BaseAddress = new Uri(settings.BaseAddress.TrimEnd('/') + "/");
+            client.BaseAddress = new Uri(settings.BaseAddress);
         });
 
         services.AddHttpClient<IWeatherClient, WeatherClient>((sp, client) =>
         {
             var settings = sp.GetRequiredService<IOptions<WeatherApiSettings>>().Value;
-            client.BaseAddress = new Uri(settings.BaseAddress.TrimEnd('/') + "/");
+            client.BaseAddress = new Uri(settings.BaseAddress);
         });
 
         return services;

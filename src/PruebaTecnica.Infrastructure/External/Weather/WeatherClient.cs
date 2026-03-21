@@ -11,9 +11,9 @@ public class WeatherClient(HttpClient http) : IWeatherClient
 {
     public async Task<WeatherResponse> GetWeatherAsync(double latitude, double longitude, string cityName, CancellationToken cancellationToken)
     {
-        var response = await http.GetAsync(
-            $"forecast?latitude={latitude}&longitude={longitude}&current_weather=true",
-            cancellationToken);
+        var url = $"forecast?latitude={latitude}&longitude={longitude}&current_weather=true";
+
+        var response = await http.GetAsync(url, cancellationToken);
         response.EnsureSuccessStatusCode();
 
         var content = await response.Content.ReadAsStringAsync(cancellationToken);

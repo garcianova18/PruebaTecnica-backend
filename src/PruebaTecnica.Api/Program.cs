@@ -35,6 +35,17 @@ builder.Services.AddControllers()
 // ─── Swagger ──────────────────────────────────────────────────────────────────
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(ops =>
+{
+
+    ops.AddPolicy("policyCORS", ops =>
+    {
+        ops.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 //builder.Services.AddSwaggerGen(c =>
 //{
 //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PruebaTecnica API", Version = "v1" });
@@ -69,6 +80,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("policyCORS");
 app.UseGlobalException();
 app.UseHttpsRedirection();
 app.UseAuthentication();

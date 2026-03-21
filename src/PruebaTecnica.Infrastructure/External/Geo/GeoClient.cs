@@ -11,8 +11,11 @@ public class GeoClient(HttpClient http) : IGeoClient
 {
     public async Task<(double lat, double lon, string name)> GetCoordinatesAsync(string city, CancellationToken cancellationToken)
     {
-        var response = await http.GetAsync($"search?name={city}&count=1", cancellationToken);
+        var url = $"search?name={city}&count=1";
+
+        var response = await http.GetAsync(url, cancellationToken);
         response.EnsureSuccessStatusCode();
+
         var content = await response.Content.ReadAsStringAsync(cancellationToken);
         var json = JsonDocument.Parse(content);
         var result = json.RootElement.GetProperty("results")[0];

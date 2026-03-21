@@ -1,4 +1,5 @@
 using AutoMapper;
+using PruebaTecnica.Application.Common.Models;
 using PruebaTecnica.Application.DTOs.Auth;
 using PruebaTecnica.Application.DTOs.Product;
 using PruebaTecnica.Domain.Entities;
@@ -10,9 +11,10 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         // Product
-        CreateMap<Product, ProductResponse>().ReverseMap();
+        CreateMap<PageResults<Product>, PageResults<ProductResponse>>().ReverseMap();
         CreateMap<Product, UpdateProductRequest>().ReverseMap();
         CreateMap<Product, CreateProductRequest>().ReverseMap();
+        CreateMap<Product, ProductResponse>().ReverseMap();
 
         // User
         CreateMap<User, RegisterRequest>().ReverseMap();

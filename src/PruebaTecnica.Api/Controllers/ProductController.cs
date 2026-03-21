@@ -42,7 +42,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> Create([FromBody] CreateProductRequest createProduct, CancellationToken cancellationToken)
     {
         var result = await mediator.Send(new CreateProductCommand(createProduct), cancellationToken);
@@ -50,7 +50,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPut("{id:guid}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> Update(Guid id, [FromBody] UpdateProductRequest updateProduct, CancellationToken cancellationToken)
     {
         await mediator.Send(new UpdateProductCommand(id, updateProduct), cancellationToken);
