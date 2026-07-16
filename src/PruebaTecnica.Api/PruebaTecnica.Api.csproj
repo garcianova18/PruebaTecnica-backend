@@ -3,6 +3,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>21155d81-a05d-4715-8fd3-3f39027154fb</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\PruebaTecnica.Application\PruebaTecnica.Application.csproj" />

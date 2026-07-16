@@ -29,6 +29,7 @@ public  class SeedDataService : ISeedDataService
             {
                 roleAdmin = new Role { Name = "admin" };
 
+                await unitOfWork.Roles.AddAsync(roleAdmin);
                 await unitOfWork.SaveChangesAsync();
                 logger.LogInformation("Roles seeded.");
             }
