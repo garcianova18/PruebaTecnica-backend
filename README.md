@@ -6,7 +6,6 @@ API REST desarrollada en **.NET 9** siguiendo los principios de **Clean Architec
 
 - [Arquitectura](#arquitectura)
 - [Tecnologías y paquetes](#tecnologías-y-paquetes)
-- [Estructura del proyecto](#estructura-del-proyecto)
 - [Requisitos previos](#requisitos-previos)
 - [Configuración](#configuración)
 - [Ejecución del proyecto](#ejecución-del-proyecto)
